@@ -1,0 +1,1082 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oneder the Sea | Sophie is turning ONE</title>
+<meta name="description" content="Sophie is turning one. An Oneder the Sea first birthday on Saturday, August 14, 2027 at the Coral Room, Seaglass Aquarium, Long Beach. Open the invitation, see the plan and RSVP.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#062C43">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23062C43'/%3E%3Cpath d='M6 20c3-3 5 3 8 0s5 3 8 0 4 0 4 0' stroke='%2364CFD8' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='11' cy='11' r='2' fill='%2364CFD8'/%3E%3Ccircle cx='19' cy='8' r='1.3' fill='%23F3E3C8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Caveat:wght@500;700&family=Quicksand:wght@400;500;600;700&display=swap">
+<style>
+/* ===================================================================
+   UNDER THE SEA
+   Sophie's first birthday. A standalone example site with its own
+   colours, type and illustrations. Everything on this page is drawn
+   in SVG and CSS, so there is not a single photograph to license.
+   =================================================================== */
+
+:root{
+  color-scheme: light;
+  /* Watercolour palette. Light blues and lilacs, ink dark enough to read. */
+  --deep:#2E2A5B;        /* deep ink,     11.8:1 on mist */
+  --sea:#3D3A77;         /* body ink,      8.6:1 on mist */
+  --teal:#5B5AA6;        /* secondary,     5.1:1 on mist */
+  --aqua:#9FD9EA;        /* pale sky                     */
+  --lilac:#C8BBEA;       /* soft purple                  */
+  --petal:#F0D7EC;       /* blush                        */
+  --foam:#E4F4FA;
+  --mist:#F6F9FD;
+  --shell:#FFFBF6;
+  --sand:#FBE7C6;
+  --coral:#B84A6B;       /* 5.2:1 on mist                */
+  --gold:#9A6B2F;
+  --white:#FFFFFF;
+
+  --maxw:1140px;
+  --disp:"Fraunces",Georgia,serif;
+  --hand:"Caveat","Segoe Script",cursive;
+  --ui:"Quicksand","Avenir Next",system-ui,sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+
+body{
+  margin:0;
+  background:var(--mist);
+  color:var(--sea);
+  font-family:var(--ui);
+  font-size:17px;
+  font-weight:500;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+body.locked{overflow:hidden}
+
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:4px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---------- watercolour ----------
+   Soft washes built from layered radial gradients with a paper grain
+   over the top. Swap any of these for a real watercolour PNG later and
+   the layout does not change. */
+.wash{
+  position:relative;
+  background:
+    radial-gradient(62% 52% at 16% 20%,rgba(159,217,234,.62),transparent 70%),
+    radial-gradient(58% 46% at 84% 14%,rgba(200,187,234,.58),transparent 72%),
+    radial-gradient(52% 44% at 74% 80%,rgba(240,215,236,.55),transparent 70%),
+    radial-gradient(64% 54% at 24% 88%,rgba(228,244,250,.9),transparent 72%),
+    radial-gradient(40% 34% at 50% 48%,rgba(251,231,198,.35),transparent 72%),
+    var(--mist);
+}
+.wash::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  opacity:.4;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23g)' opacity='.5'/%3E%3C/svg%3E");
+}
+.wash > *{position:relative;z-index:1}
+.narrow{max-width:760px;margin-left:auto;margin-right:auto}
+.center{text-align:center}
+
+h1,h2,h3{font-family:var(--disp);font-weight:900;line-height:1.08;letter-spacing:-.015em;margin:0}
+
+.eyebrow{
+  font-family:var(--ui);font-size:12px;font-weight:700;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--teal);
+  margin:0 0 18px;padding-left:.3em;
+}
+.hand{
+  font-family:var(--hand);font-weight:700;
+  font-size:clamp(1.6rem,3.6vw,2.4rem);line-height:1.1;
+  color:var(--teal);margin:0;
+}
+
+/* ===================================================================
+   OPENING ENVELOPE
+   Hidden until the script shows it, so the page still works with no
+   JavaScript at all.
+   =================================================================== */
+.opener{
+  position:fixed;inset:0;z-index:90;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  background:
+    radial-gradient(70% 55% at 20% 18%,rgba(159,217,234,.75),transparent 70%),
+    radial-gradient(65% 50% at 82% 16%,rgba(200,187,234,.7),transparent 72%),
+    radial-gradient(60% 50% at 76% 84%,rgba(240,215,236,.7),transparent 70%),
+    radial-gradient(70% 60% at 18% 86%,rgba(228,244,250,.95),transparent 72%),
+    var(--mist);
+  padding:24px;
+  transition:opacity .7s var(--ease),visibility .7s;
+}
+.opener[hidden]{display:none}
+.opener.gone{opacity:0;visibility:hidden;pointer-events:none}
+
+.env-btn{
+  appearance:none;background:transparent;border:0;cursor:pointer;padding:0;
+  display:block;width:min(420px,78vw);
+}
+.env-btn svg{display:block;width:100%;height:auto;overflow:visible}
+.flap{transform-origin:50% 23.5%;transition:transform .85s var(--ease)}
+.opener.open .flap{transform:rotateX(-172deg)}
+.env-card{transform:translateY(0);transition:transform .85s var(--ease) .1s,opacity .5s ease .5s}
+.opener.open .env-card{transform:translateY(-96px)}
+.env-btn:hover .seal,.env-btn:focus-visible .seal{transform:scale(1.07)}
+.seal{transform-origin:210px 186px;transition:transform .45s var(--ease),opacity .45s ease}
+.opener.open .seal{opacity:0;transform:scale(.55)}
+
+.open-cue{
+  margin:34px 0 0;color:var(--sea);
+  font-family:var(--ui);font-size:12px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;
+  animation:breathe 2.6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{opacity:.72}50%{opacity:1}}
+
+.skip{
+  position:absolute;left:50%;bottom:26px;transform:translateX(-50%);
+  background:transparent;border:0;cursor:pointer;color:var(--teal);
+  font-family:var(--ui);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  text-decoration:underline;text-underline-offset:4px;
+}
+.skip:hover{color:var(--deep)}
+
+/* ===================================================================
+   BUBBLES
+   =================================================================== */
+.bubbles{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bubbles span{
+  position:absolute;bottom:-14vh;border-radius:50%;
+  background:radial-gradient(circle at 32% 30%,rgba(255,255,255,.85),rgba(130,214,224,.22) 58%,rgba(130,214,224,0) 70%);
+  border:1px solid rgba(255,255,255,.35);
+  animation:rise linear infinite;
+}
+@keyframes rise{
+  0%{transform:translate3d(0,0,0) scale(.7);opacity:0}
+  12%{opacity:.75}
+  100%{transform:translate3d(22px,-118vh,0) scale(1.1);opacity:0}
+}
+
+/* ===================================================================
+   HERO
+   =================================================================== */
+.hero{
+  position:relative;z-index:1;
+  color:var(--deep);
+  padding:clamp(72px,11vw,130px) 0 0;
+  overflow:hidden;
+  text-align:center;
+}
+.hero .eyebrow{color:var(--sea)}
+.hero .hand{color:var(--coral)}
+
+.hero h1{
+  font-size:clamp(3rem,11vw,7.4rem);
+  line-height:.9;
+  letter-spacing:-.03em;
+  margin:12px 0 0;
+}
+.hero h1 em{
+  display:block;font-style:normal;font-weight:400;
+  font-size:.42em;letter-spacing:.02em;margin-top:.22em;color:var(--sea);
+}
+.who{
+  font-size:clamp(1.05rem,2.3vw,1.45rem);
+  color:var(--sea);margin:26px auto 0;max-width:30ch;font-weight:500;
+}
+.when-line{
+  display:inline-flex;flex-wrap:wrap;justify-content:center;align-items:center;
+  gap:10px 18px;margin:26px 0 0;
+  font-family:var(--ui);font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--teal);
+}
+.when-line i{font-style:normal;opacity:.55}
+
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:40px 0 0}
+
+/* tail + floor */
+.tail{
+  display:block;width:min(430px,74vw);margin:clamp(26px,5vw,52px) auto -2px;
+  animation:sway 7s ease-in-out infinite;transform-origin:50% 0%;
+}
+@keyframes sway{0%,100%{transform:rotate(-2.6deg)}50%{transform:rotate(2.6deg)}}
+
+.waves{display:block;width:100%;height:auto;margin-bottom:-1px;position:relative;z-index:2}
+
+/* ===================================================================
+   BUTTONS
+   =================================================================== */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:16px 28px;border-radius:999px;border:2px solid transparent;cursor:pointer;
+  font-family:var(--ui);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  text-decoration:none;transition:transform .18s var(--ease),background .18s ease,color .18s ease;
+}
+.btn svg{width:17px;height:17px;flex:none}
+.btn:hover{transform:translateY(-2px)}
+.btn--sun{background:var(--deep);color:var(--white)}
+.btn--sun:hover{background:var(--sea);color:var(--white)}
+.btn--ghost{background:rgba(255,255,255,.6);color:var(--deep);border-color:var(--deep)}
+.btn--ghost:hover{background:var(--white);color:var(--deep)}
+.btn--deep{background:var(--deep);color:var(--white)}
+.btn--deep:hover{background:var(--sea);color:var(--white)}
+.btn--line{background:transparent;color:var(--sea);border-color:var(--sea)}
+.btn--line:hover{background:var(--sea);color:var(--white)}
+
+/* ===================================================================
+   SECTIONS
+   =================================================================== */
+.sect{position:relative;z-index:1;padding:clamp(64px,8vw,104px) 0}
+.sect--shell{background:var(--shell)}
+.sect--foam{background:
+    radial-gradient(55% 60% at 12% 24%,rgba(200,187,234,.5),transparent 70%),
+    radial-gradient(55% 60% at 88% 76%,rgba(159,217,234,.55),transparent 70%),
+    var(--foam)}
+
+.head{text-align:center;margin:0 0 clamp(36px,5vw,58px)}
+.head h2{font-size:clamp(1.9rem,4.6vw,3rem);color:var(--deep)}
+.head .hand{margin-bottom:6px}
+
+/* ---------- countdown band ---------- */
+.band{
+  position:relative;z-index:1;
+  background:
+    radial-gradient(60% 70% at 20% 30%,rgba(200,187,234,.95),transparent 72%),
+    radial-gradient(60% 70% at 80% 70%,rgba(159,217,234,.95),transparent 72%),
+    radial-gradient(70% 60% at 55% 20%,rgba(240,215,236,.7),transparent 74%),
+    var(--foam);
+  color:var(--deep);text-align:center;
+  padding:clamp(52px,7vw,84px) 24px;
+}
+.clock{display:flex;justify-content:center;gap:clamp(12px,4vw,42px);margin:22px 0 0;flex-wrap:wrap}
+.clock div{min-width:64px}
+.clock b{
+  display:block;font-family:var(--disp);font-weight:900;
+  font-size:clamp(2.2rem,7vw,4.2rem);line-height:1;
+  font-variant-numeric:tabular-nums;color:var(--deep);
+}
+.clock span{
+  display:block;margin-top:10px;color:var(--sea);
+  font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+}
+
+/* ---------- detail cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:26px}
+.card{
+  background:var(--white);border-radius:26px;padding:clamp(28px,3.4vw,42px);
+  box-shadow:0 18px 44px rgba(46,42,91,.08);
+  border:1px solid #E3E7F6;text-align:center;
+}
+.card .ic{width:52px;height:52px;margin:0 auto 18px;display:block;color:var(--teal)}
+.card h3{font-size:1.5rem;color:var(--deep);margin:0 0 12px}
+.card p{margin:0 0 6px;font-size:16px}
+.card address{font-style:normal;color:var(--teal);font-size:15.5px;line-height:1.65;margin:8px 0 0}
+.card .btn{margin-top:22px}
+.big-time{
+  font-family:var(--disp);font-weight:900;font-size:2rem;color:var(--coral);
+  line-height:1.1;margin:0 0 4px;
+}
+
+/* ---------- plan ---------- */
+.plan{max-width:680px;margin:0 auto;display:grid;gap:14px}
+.step{
+  display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;
+  background:var(--white);border:1px solid #E3E7F6;border-radius:20px;
+  padding:20px 24px;
+  transition:transform .2s var(--ease),box-shadow .2s ease;
+}
+.step:hover{transform:translateX(5px);box-shadow:0 12px 30px rgba(46,42,91,.09)}
+.step .ic{width:40px;height:40px;color:var(--teal);flex:none}
+.step b{display:block;font-family:var(--disp);font-weight:900;font-size:1.18rem;color:var(--deep)}
+.step .t{
+  display:block;font-size:12px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--coral);margin-bottom:2px;
+}
+.step p{margin:3px 0 0;font-size:15.5px;color:var(--teal)}
+
+/* ---------- bring / wear ---------- */
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px}
+.duo article{
+  border-radius:26px;padding:clamp(28px,3.4vw,40px);
+  background:var(--white);border:1px solid #E3E7F6;
+}
+.duo h3{font-size:1.35rem;color:var(--deep);margin:0 0 14px}
+.duo ul{margin:0;padding:0;list-style:none}
+.duo li{position:relative;padding-left:30px;margin:0 0 11px;font-size:16px}
+.duo li:last-child{margin-bottom:0}
+.duo li::before{
+  content:"";position:absolute;left:4px;top:.62em;
+  width:11px;height:11px;border-radius:50%;
+  background:var(--aqua);border:1px solid var(--teal);
+}
+
+/* ---------- gifts ---------- */
+.gift-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:30px}
+
+/* ===================================================================
+   RSVP
+   =================================================================== */
+.rsvp-card{
+  background:var(--white);border-radius:30px;border:1px solid #E3E7F6;
+  padding:clamp(28px,4.4vw,56px);box-shadow:0 22px 56px rgba(46,42,91,.09);
+}
+.f-row{display:flex;flex-wrap:wrap;gap:22px;margin:0 0 22px}
+.f-row > *{flex:1 1 220px;min-width:0}
+
+.lab{
+  display:block;font-family:var(--ui);font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin:0 0 8px;
+}
+input[type=text],input[type=email],select,textarea{
+  width:100%;font-family:var(--ui);font-size:16px;font-weight:500;color:var(--deep);
+  background:var(--mist);border:2px solid #D8DDF2;border-radius:14px;
+  padding:14px 16px;appearance:none;
+}
+input:focus,select:focus,textarea:focus{border-color:var(--teal);outline:none}
+textarea{resize:vertical;min-height:92px;line-height:1.6}
+select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%230F6F85' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center;background-size:12px;
+  padding-right:40px;cursor:pointer;
+}
+input::placeholder,textarea::placeholder{color:#8A86B8}
+
+.yn{display:flex;gap:12px;flex-wrap:wrap}
+.yn label{
+  flex:1 1 170px;cursor:pointer;position:relative;text-align:center;
+  border:2px solid #D8DDF2;border-radius:14px;padding:15px 14px;
+  font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);
+  transition:background .18s ease,border-color .18s ease,color .18s ease;
+}
+.yn input{position:absolute;opacity:0;width:0;height:0}
+.yn label:has(input:checked){background:var(--deep);border-color:var(--deep);color:var(--white)}
+.yn label:has(input:focus-visible){outline:3px solid var(--teal);outline-offset:3px}
+
+.swimmers{margin:6px 0 0;border-top:2px dashed #D8DDF2;padding-top:22px}
+.swimmer{padding:16px 0;border-bottom:1px dashed #E3E7F6}
+.swimmer:last-child{border-bottom:0}
+.swimmer .n{
+  font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--coral);margin:0 0 12px;
+}
+.going-only{display:block}
+.rsvp[data-going="no"] .going-only{display:none}
+
+.send{width:100%;justify-content:center;margin-top:28px;font-size:14px;padding:19px 28px}
+
+.done-note{display:none;text-align:center}
+.rsvp.done .done-note{display:block}
+.rsvp.done .rsvp-body{display:none}
+.done-note .ic{width:76px;height:76px;margin:0 auto 20px;display:block;color:var(--teal)}
+.done-note h3{font-size:1.9rem;color:var(--deep);margin:0 0 12px}
+.done-note p{margin:0 auto;max-width:40ch;color:var(--teal)}
+
+/* ===================================================================
+   FOOTER
+   =================================================================== */
+.foot{
+  position:relative;z-index:1;
+  background:var(--deep);color:var(--white);text-align:center;
+  padding:clamp(54px,7vw,84px) 24px clamp(70px,8vw,96px);
+}
+.foot .hand{color:var(--sand);font-size:clamp(2rem,5vw,3rem)}
+.foot p{margin:16px 0 0;font-size:14.5px;color:#C9C6E6}
+.foot .btn{margin-top:28px}
+
+/* floating controls */
+.controls{
+  position:fixed;left:14px;bottom:14px;z-index:40;display:flex;gap:10px;
+}
+.ctl{
+  width:48px;height:48px;border-radius:50%;cursor:pointer;
+  border:1px solid rgba(255,255,255,.22);background:var(--deep);color:var(--foam);
+  display:grid;place-items:center;padding:0;
+  box-shadow:0 10px 26px rgba(46,42,91,.26);
+  transition:transform .18s var(--ease),background .18s ease;
+}
+.ctl:hover{transform:translateY(-3px);background:var(--sea)}
+.ctl svg{width:20px;height:20px}
+.ctl .off{display:none}
+.ctl[aria-pressed="true"] .on{display:none}
+.ctl[aria-pressed="true"] .off{display:block}
+
+.made{
+  position:fixed;right:14px;bottom:14px;z-index:40;
+  background:var(--deep);color:var(--foam);text-decoration:none;
+  font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:12px 17px;border-radius:999px;box-shadow:0 10px 26px rgba(46,42,91,.26);
+}
+.made:hover{background:var(--sea);color:var(--white)}
+
+/* ===================================================================
+   RESPONSIVE
+   =================================================================== */
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{padding:0 18px}
+  .cta-row{flex-direction:column;align-items:stretch}
+  .cta-row .btn{justify-content:center}
+  .step{grid-template-columns:1fr;gap:12px;text-align:left}
+  .step .ic{width:34px;height:34px}
+  .clock div{min-width:58px}
+  .controls{left:10px;bottom:10px}
+  .ctl{width:44px;height:44px}
+  #topBtn{display:none}            /* the credit pill needs the room */
+  .made{right:10px;bottom:10px;font-size:10px;padding:10px 13px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .bubbles span,.tail,.open-cue{animation:none!important}
+  *{transition-duration:.01ms!important}
+}
+
+/* ===================================================================
+   PRINT: a clean paper invitation
+   =================================================================== */
+@media print{
+  .opener,.bubbles,.controls,.made,.cta-row,#rsvp,.band,.no-print{display:none!important}
+  body{background:#fff;color:#000;font-size:12pt}
+  .hero{background:#fff;color:#000;padding:0}
+  .hero .eyebrow,.hero .hand,.hero h1 em,.when-line{color:#000}
+  .hero h1{text-shadow:none;font-size:46pt}
+  .who{color:#000}
+  .sect{padding:18pt 0;background:#fff}
+  .card,.step,.duo article,.rsvp-card{box-shadow:none;border:1px solid #999;break-inside:avoid}
+  .waves,.tail{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== OPENING ENVELOPE ===================== -->
+<div class="opener" id="opener" hidden>
+  <button class="env-btn" id="envBtn" type="button" aria-label="Open the invitation">
+    <svg viewBox="0 0 420 300" aria-hidden="true">
+      <!-- card sliding out -->
+      <g class="env-card">
+        <rect x="52" y="62" width="316" height="206" rx="10" fill="#FFFBF6"/>
+        <text x="210" y="195" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="22" font-weight="900" fill="#8FA8DC" letter-spacing="1.6">ONEDER THE SEA</text>
+      </g>
+      <!-- envelope body -->
+      <path d="M30 108h360a10 10 0 0 1 10 10v150a10 10 0 0 1-10 10H30a10 10 0 0 1-10-10V118a10 10 0 0 1 10-10z" fill="#8FA8DC"/>
+      <path d="M20 268 170 176l40 24 40-24 150 92a10 10 0 0 1-10 10H30a10 10 0 0 1-10-10z" fill="#A8BEE8"/>
+      <path d="M20 122 210 240 400 122" fill="none" stroke="#C8BBEA" stroke-width="2" opacity=".55"/>
+      <!-- flap -->
+      <g class="flap">
+        <path d="M20 118a10 10 0 0 1 10-10h360a10 10 0 0 1 10 10L210 232z" fill="#B9CCEE"/>
+        <path d="M20 118 210 232 400 118" fill="none" stroke="#E4F4FA" stroke-width="2" opacity=".5"/>
+      </g>
+      <!-- shell seal -->
+      <g class="seal">
+        <circle cx="210" cy="186" r="30" fill="#FBE7C6"/>
+        <circle cx="210" cy="186" r="30" fill="none" stroke="#E3C68C" stroke-width="2"/>
+        <path d="M192 196a18 20 0 0 1 36 0z" fill="#F3D9A8"/>
+        <path d="M210 196v-19M203 195l-4-15M217 195l4-15M197 194l-6-11M223 194l6-11" stroke="#B98B46" stroke-width="1.7" stroke-linecap="round" fill="none"/>
+      </g>
+      <!-- bubbles around the seal -->
+      <circle cx="300" cy="86" r="7" fill="#9FD9EA" opacity=".5"/>
+      <circle cx="326" cy="62" r="4" fill="#9FD9EA" opacity=".4"/>
+      <circle cx="108" cy="74" r="5" fill="#9FD9EA" opacity=".45"/>
+    </svg>
+  </button>
+  <p class="open-cue" id="cue">Tap to open</p>
+  <button class="skip" type="button" id="skipBtn">Skip the envelope</button>
+</div>
+
+<!-- ===================== BUBBLES ===================== -->
+<div class="bubbles" id="bubbles" aria-hidden="true"></div>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero wash">
+  <div class="wrap">
+    <p class="eyebrow">You are invited</p>
+    <p class="hand">our little one is one</p>
+    <h1>Oneder the Sea<em>Sophie is turning ONE</em></h1>
+    <p class="who">A morning of bubbles, tide pools and one very small smash cake.</p>
+
+    <p class="when-line">
+      <span>Saturday, August 14</span><i>&#9679;</i><span>11:00 to 2:00</span><i>&#9679;</i><span>Long Beach</span>
+    </p>
+
+    <div class="cta-row">
+      <a class="btn btn--sun" href="#rsvp">Will you splash with us? RSVP
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v13M5 12l7 7 7-7"/></svg>
+      </a>
+      <button class="btn btn--ghost" type="button" id="icsBtn">Add to calendar
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+      </button>
+    </div>
+
+    <!-- watercolour tail, drawn not photographed -->
+    <svg class="tail" viewBox="0 0 320 300" aria-hidden="true">
+      <defs>
+        <linearGradient id="tg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#C8BBEA"/>
+          <stop offset=".5" stop-color="#9FD9EA"/>
+          <stop offset="1" stop-color="#7FB4E0"/>
+        </linearGradient>
+      </defs>
+      <path d="M160 0c16 44 20 76 16 112-4 34-14 56-12 80 2 22 12 34 34 46 24 13 50 20 76 24-24 16-54 22-82 16-20-4-36-14-46-28-10 14-26 24-46 28-28 6-58 0-82-16 26-4 52-11 76-24 22-12 32-24 34-46 2-24-8-46-12-80-4-36 0-68 16-112z" fill="url(#tg)"/>
+      <g fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" opacity=".6">
+        <path d="M160 26c6 26 8 48 6 68M148 44c3 20 4 38 3 54M172 44c-3 20-4 38-3 54M160 118c0 22-4 40-4 56"/>
+        <path d="M120 206c16 18 30 30 44 38M200 206c-16 18-30 30-44 38"/>
+      </g>
+      <g fill="#FFFBF6" opacity=".85">
+        <circle cx="96" cy="60" r="5"/><circle cx="224" cy="42" r="3.4"/><circle cx="240" cy="86" r="4.4"/><circle cx="78" cy="118" r="3"/>
+      </g>
+    </svg>
+  </div>
+
+  <svg class="waves" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 64c120-34 240-34 360 0s240 34 360 0 240-34 360 0 240 34 360 0v56H0z" fill="#E4F4FA" opacity=".85"/>
+    <path d="M0 82c130-30 250-30 360 2s240 30 360 0 240-30 360 2 240 30 360 0v34H0z" fill="#F6F9FD"/>
+  </svg>
+</header>
+
+<!-- ===================== COUNTDOWN ===================== -->
+<section class="band">
+  <p class="eyebrow">Until Sophie turns one</p>
+  <div class="clock" id="clock">
+    <div><b id="cd">00</b><span>Days</span></div>
+    <div><b id="ch">00</b><span>Hours</span></div>
+    <div><b id="cm">00</b><span>Minutes</span></div>
+    <div><b id="cs">00</b><span>Seconds</span></div>
+  </div>
+</section>
+
+<!-- ===================== WHEN / WHERE ===================== -->
+<section class="sect">
+  <div class="wrap">
+    <div class="head">
+      <p class="hand">the when and the where</p>
+      <h2>Here is everything</h2>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="7" y="10" width="34" height="31" rx="5"/><path d="M7 19h34M17 5v8M31 5v8"/><circle cx="24" cy="29" r="4.5" fill="currentColor" stroke="none"/>
+        </svg>
+        <h3>When</h3>
+        <p class="big-time">Saturday, August 14</p>
+        <p>Eleven in the morning until two</p>
+        <p style="color:var(--teal);font-size:15px">Splash time starts right away, so come ready.</p>
+        <button class="btn btn--line" type="button" id="icsBtn2">Add to calendar
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5M4 20h16"/></svg>
+        </button>
+      </article>
+
+      <article class="card">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M24 43s14-13 14-24a14 14 0 1 0-28 0c0 11 14 24 14 24z"/><circle cx="24" cy="19" r="5.5"/>
+        </svg>
+        <h3>Where</h3>
+        <p class="big-time">The Coral Room</p>
+        <p>Seaglass Aquarium</p>
+        <address>1420 Seagrass Avenue<br>Long Beach, California 90803</address>
+        <p style="color:var(--teal);font-size:15px;margin-top:10px">Free parking in the lot off Seagrass.</p>
+        <a class="btn btn--line" href="https://maps.google.com/?q=1420+Seagrass+Avenue+Long+Beach+CA+90803" target="_blank" rel="noopener">Get directions
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== THE PLAN ===================== -->
+<section class="sect sect--shell">
+  <div class="wrap">
+    <div class="head">
+      <p class="hand">how the morning goes</p>
+      <h2>The plan</h2>
+    </div>
+
+    <div class="plan">
+      <div class="step">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 30c5-5 8 5 13 0s8 5 13 0 8 5 12 0"/><path d="M5 39c5-5 8 5 13 0s8 5 13 0 8 5 12 0"/><circle cx="18" cy="14" r="6"/><path d="M30 10c4 2 7 6 8 10"/>
+        </svg>
+        <div>
+          <span class="t">11:00</span>
+          <b>Splash time</b>
+          <p>Warm shallow pool, floats and tails in every size, and two lifeguards in the water the whole time.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M24 9c9 0 15 8 15 16a15 15 0 0 1-30 0c0-8 6-16 15-16z"/><path d="M24 9v31M17 12l-4 21M31 12l4 21M12 18l-2 14M36 18l2 14"/>
+        </svg>
+        <div>
+          <span class="t">11:45</span>
+          <b>Tide pool touch tank</b>
+          <p>Sea stars, urchins and one very patient hermit crab named Gerald. Hands in, gently.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M10 28h28v10a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4z"/><path d="M8 28c0-3 3-5 6-5h20c3 0 6 2 6 5"/><path d="M13 23c2-3 6-3 8 0s6 3 8 0 5-3 6 0"/><path d="M24 23v-6"/><path d="M24 17c-2-2-1-4 0-5 1 1 2 3 0 5z"/>
+        </svg>
+        <div>
+          <span class="t">12:30</span>
+          <b>Smash cake and lunch</b>
+          <p>Sandwiches and fruit for the grown ups, and one small cake that Sophie is going to destroy on camera.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M24 6 28 18l12 1-9 8 3 12-10-6-10 6 3-12-9-8 12-1z"/>
+        </svg>
+        <div>
+          <span class="t">1:00</span>
+          <b>Bubbles and pearls</b>
+          <p>A bubble machine, soft music, and paper pearls scattered for the big siblings to find.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M24 40s-13-8-13-18a7 7 0 0 1 13-4 7 7 0 0 1 13 4c0 10-13 18-13 18z"/>
+        </svg>
+        <div>
+          <span class="t">2:00</span>
+          <b>Nap time</b>
+          <p>Shell bags by the door, one for every little one.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WEAR / BRING ===================== -->
+<section class="sect sect--foam">
+  <div class="wrap">
+    <div class="head">
+      <p class="hand">a few small things</p>
+      <h2>What to wear and bring</h2>
+    </div>
+
+    <div class="duo">
+      <article>
+        <h3>Wear</h3>
+        <ul>
+          <li>Blue, green, purple or anything that sparkles</li>
+          <li>A swimsuit underneath, already on</li>
+          <li>Tails are welcome, and we have spares</li>
+          <li>Shoes that do not mind getting wet</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Bring</h3>
+        <ul>
+          <li>A towel with a name on it</li>
+          <li>Swim nappies if your little one is still in them</li>
+          <li>A dry change of clothes for the ride home</li>
+          <li>Nothing else, we have the rest covered</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GIFTS ===================== -->
+<section class="sect">
+  <div class="wrap narrow center">
+    <p class="hand">if you were wondering</p>
+    <h2 style="font-size:clamp(1.9rem,4.6vw,3rem);color:var(--deep);margin:6px 0 18px">Gifts</h2>
+    <p style="max-width:46ch;margin:0 auto">Sophie is building a bookshelf. A board book with a note inside the cover means more to us than anything wrapped. If you would like a list, here are two.</p>
+    <div class="gift-row">
+      <a class="btn btn--deep" href="#rsvp">Sophie&rsquo;s book list
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 5.5v15"/></svg>
+      </a>
+      <a class="btn btn--line" href="#rsvp">The wish list
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 1 0-7.1 7.1L12 21.5l8.8-8.8a5 5 0 0 0 0-7.1z"/></svg>
+      </a>
+    </div>
+    <p style="font-size:14.5px;color:var(--teal);margin-top:22px">No gift at all is also a completely correct answer.</p>
+  </div>
+</section>
+
+<!-- ===================== RSVP ===================== -->
+<section class="sect sect--shell" id="rsvp">
+  <div class="wrap narrow">
+    <div class="head">
+      <p class="hand">the important bit</p>
+      <h2>Will you splash with us?</h2>
+      <p class="eyebrow" style="margin:16px 0 0">Please reply by August 1</p>
+    </div>
+
+    <form class="rsvp-card rsvp" id="rsvpForm" data-going="yes" novalidate>
+      <div class="rsvp-body">
+        <div class="f-row">
+          <div>
+            <label class="lab" for="who">Grown up in charge</label>
+            <input id="who" type="text" autocomplete="name" placeholder="Your name">
+          </div>
+          <div>
+            <label class="lab" for="mail">Email or phone</label>
+            <input id="mail" type="text" autocomplete="email" placeholder="So we can send the details">
+          </div>
+        </div>
+
+        <div style="margin:0 0 22px">
+          <span class="lab">Can you make it?</span>
+          <div class="yn">
+            <label><input type="radio" name="going" value="yes" checked>We will be there</label>
+            <label><input type="radio" name="going" value="no">We cannot make it</label>
+          </div>
+        </div>
+
+        <div class="going-only">
+          <div class="f-row">
+            <div>
+              <label class="lab" for="kids">Little ones coming</label>
+              <select id="kids">
+                <option value="1" selected>1 little one</option>
+                <option value="2">2 little ones</option>
+                <option value="3">3 little ones</option>
+                <option value="4">4 little ones</option>
+              </select>
+            </div>
+            <div>
+              <label class="lab" for="grown">Grown ups staying</label>
+              <select id="grown">
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="swimmers" id="swimmers"></div>
+
+          <div style="margin-top:22px">
+            <label class="lab" for="notes">Allergies or anything we should know</label>
+            <textarea id="notes" placeholder="Optional. Allergies, nap times, nervous swimmers, anything at all."></textarea>
+          </div>
+        </div>
+
+        <button class="btn btn--deep send" type="submit">Send our reply
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+
+      <div class="done-note" aria-live="polite">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="24" cy="24" r="20"/><path d="M15 24.5l6.5 6.5L34 18"/>
+        </svg>
+        <h3 id="doneTitle">See you under the sea</h3>
+        <p id="doneMsg">Your reply is in. We will send the last few details the week before.</p>
+      </div>
+    </form>
+
+    <p class="center" style="font-size:14px;color:var(--teal);margin-top:22px">
+      This is a demonstration page. Nothing typed here is sent anywhere or stored.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="foot">
+  <p class="hand">see you in the water</p>
+  <p>Sophie &#183; August 14, 2027 &#183; The Coral Room, Seaglass Aquarium<br>1420 Seagrass Avenue, Long Beach, California 90803</p>
+  <button class="btn btn--ghost no-print" type="button" id="printBtn">Print the invitation
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 9V4h10v5M7 18H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><rect x="7" y="14" width="10" height="7" rx="1.5"/></svg>
+  </button>
+</footer>
+
+<div class="controls">
+  <button class="ctl" type="button" id="soundBtn" aria-pressed="false" aria-label="Play ocean sound">
+    <svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg>
+    <svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M16 9a4 4 0 0 1 0 6"/><path d="M19.5 6.5a8 8 0 0 1 0 11"/></svg>
+  </button>
+  <button class="ctl" type="button" id="topBtn" aria-label="Back to the top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V6M6 12l6-6 6 6"/></svg>
+  </button>
+</div>
+
+<a class="made" href="examples.html">Example site &#183; built by Custom Event Websites</a>
+
+<script>
+(function(){
+  'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var PARTY  = new Date('2027-08-14T11:00:00-07:00');
+
+  /* ---------------------------------------------------------------
+     1. The envelope. Rendered hidden so the page still works with
+        JavaScript switched off, then shown here.
+     --------------------------------------------------------------- */
+  var opener = document.getElementById('opener');
+  var envBtn = document.getElementById('envBtn');
+  var skip   = document.getElementById('skipBtn');
+
+  function closeOpener(animate){
+    if (animate) opener.classList.add('open');
+    document.body.classList.remove('locked');
+    setTimeout(function(){
+      opener.classList.add('gone');
+      setTimeout(function(){ opener.hidden = true; }, 800);
+    }, animate ? 820 : 0);
+  }
+
+  if (opener){
+    opener.hidden = false;
+    document.body.classList.add('locked');
+    envBtn.addEventListener('click', function(){ closeOpener(true); });
+    skip.addEventListener('click', function(){ closeOpener(false); });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && !opener.hidden) closeOpener(false);
+    });
+  }
+
+  /* ---------------------------------------------------------------
+     2. Bubbles
+     --------------------------------------------------------------- */
+  var box = document.getElementById('bubbles');
+  if (box && !reduce){
+    var html = '';
+    for (var i = 0; i < 22; i++){
+      var size = 6 + Math.random() * 26;
+      html += '<span style="left:' + (Math.random() * 100).toFixed(1) + '%;' +
+              'width:' + size.toFixed(0) + 'px;height:' + size.toFixed(0) + 'px;' +
+              'animation-duration:' + (13 + Math.random() * 16).toFixed(1) + 's;' +
+              'animation-delay:-' + (Math.random() * 22).toFixed(1) + 's"></span>';
+    }
+    box.innerHTML = html;
+  }
+
+  /* ---------------------------------------------------------------
+     3. Countdown
+     --------------------------------------------------------------- */
+  var cd = document.getElementById('cd'), ch = document.getElementById('ch'),
+      cm = document.getElementById('cm'), cs = document.getElementById('cs');
+
+  function pad(n){ n = String(Math.max(0, n)); return n.length < 2 ? '0' + n : n; }
+
+  function tick(){
+    var left = PARTY.getTime() - Date.now();
+    if (left <= 0){
+      document.getElementById('clock').innerHTML =
+        '<div style="min-width:auto"><b style="font-size:clamp(1.8rem,6vw,3.2rem)">TODAY IS THE DAY</b></div>';
+      return;
+    }
+    var s = Math.floor(left / 1000);
+    cd.textContent = pad(Math.floor(s / 86400));
+    ch.textContent = pad(Math.floor(s / 3600) % 24);
+    cm.textContent = pad(Math.floor(s / 60) % 60);
+    cs.textContent = pad(s % 60);
+  }
+  if (cd){ tick(); setInterval(tick, 1000); }
+
+  /* ---------------------------------------------------------------
+     4. Add to calendar. Builds an .ics file in the browser, so there
+        is nothing to host and nothing to go stale.
+     --------------------------------------------------------------- */
+  function stamp(d){
+    return d.getUTCFullYear() +
+      pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) + 'T' +
+      pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + '00Z';
+  }
+
+  function downloadIcs(){
+    var end = new Date(PARTY.getTime() + 3 * 60 * 60 * 1000);
+    var ics = [
+      'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Under the Sea//EN','BEGIN:VEVENT',
+      'UID:sophie-first-birthday@example',
+      'DTSTAMP:' + stamp(new Date()),
+      'DTSTART:' + stamp(PARTY),
+      'DTEND:' + stamp(end),
+      'SUMMARY:Sophie’s first birthday, Oneder the Sea',
+      'LOCATION:The Coral Room\\, Seaglass Aquarium\\, 1420 Seagrass Avenue\\, Long Beach\\, CA 90803',
+      'DESCRIPTION:Splash time\\, tide pools\\, smash cake and bubbles. Swimsuit on under the clothes\\, towel with a name on it.',
+      'END:VEVENT','END:VCALENDAR'
+    ].join('\r\n');
+
+    var url = URL.createObjectURL(new Blob([ics], { type:'text/calendar' }));
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'sophie-oneder-the-sea.ics';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 2000);
+  }
+
+  ['icsBtn','icsBtn2'].forEach(function(id){
+    var b = document.getElementById(id);
+    if (b) b.addEventListener('click', downloadIcs);
+  });
+
+  /* ---------------------------------------------------------------
+     5. Ocean sound. Filtered noise with a slow swell, generated in
+        the browser, so there is no audio file to load.
+     --------------------------------------------------------------- */
+  var ctx = null, nodes = null;
+  var soundBtn = document.getElementById('soundBtn');
+
+  function startSound(){
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return false;
+    ctx = new AC();
+
+    var len = ctx.sampleRate * 4;
+    var buf = ctx.createBuffer(1, len, ctx.sampleRate);
+    var data = buf.getChannelData(0);
+    var last = 0;
+    for (var i = 0; i < len; i++){            /* brown noise */
+      var white = Math.random() * 2 - 1;
+      last = (last + 0.02 * white) / 1.02;
+      data[i] = last * 3.2;
+    }
+
+    var src = ctx.createBufferSource();
+    src.buffer = buf; src.loop = true;
+
+    var filter = ctx.createBiquadFilter();
+    filter.type = 'lowpass'; filter.frequency.value = 520; filter.Q.value = 0.6;
+
+    var gain = ctx.createGain();
+    gain.gain.value = 0.0001;
+
+    var swell = ctx.createOscillator();       /* the waves coming in */
+    swell.frequency.value = 0.11;
+    var swellGain = ctx.createGain();
+    swellGain.gain.value = 0.045;
+
+    swell.connect(swellGain).connect(gain.gain);
+    src.connect(filter).connect(gain).connect(ctx.destination);
+
+    src.start(); swell.start();
+    gain.gain.linearRampToValueAtTime(0.075, ctx.currentTime + 1.6);
+
+    nodes = { src: src, gain: gain, swell: swell };
+    return true;
+  }
+
+  function stopSound(){
+    if (!ctx || !nodes) return;
+    nodes.gain.gain.linearRampToValueAtTime(0.0001, ctx.currentTime + 0.5);
+    setTimeout(function(){
+      try { nodes.src.stop(); nodes.swell.stop(); ctx.close(); } catch (e) {}
+      ctx = null; nodes = null;
+    }, 600);
+  }
+
+  if (soundBtn){
+    soundBtn.addEventListener('click', function(){
+      var on = soundBtn.getAttribute('aria-pressed') === 'true';
+      if (on){
+        stopSound();
+        soundBtn.setAttribute('aria-pressed', 'false');
+        soundBtn.setAttribute('aria-label', 'Play ocean sound');
+      } else if (startSound()){
+        soundBtn.setAttribute('aria-pressed', 'true');
+        soundBtn.setAttribute('aria-label', 'Stop ocean sound');
+      }
+    });
+  }
+
+  /* ---------------------------------------------------------------
+     6. Odds and ends
+     --------------------------------------------------------------- */
+  var top = document.getElementById('topBtn');
+  if (top) top.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  });
+
+  var printBtn = document.getElementById('printBtn');
+  if (printBtn) printBtn.addEventListener('click', function(){ window.print(); });
+
+  /* ---------------------------------------------------------------
+     7. RSVP
+     --------------------------------------------------------------- */
+  var ORD = ['First','Second','Third','Fourth'];
+  var kids = document.getElementById('kids');
+  var list = document.getElementById('swimmers');
+
+  function renderSwimmers(){
+    if (!kids || !list) return;
+    var n = parseInt(kids.value, 10) || 1;
+
+    var keep = [];
+    list.querySelectorAll('.swimmer').forEach(function(row){
+      var f = row.querySelectorAll('input,select');
+      keep.push({ name: f[0] ? f[0].value : '', age: f[1] ? f[1].value : '' });
+    });
+
+    var ages = ['3 and under','4','5','6','7','8 and up'];
+    var html = '';
+    for (var i = 0; i < n; i++){
+      var prev = keep[i] || { name:'', age:'' };
+      var opts = ages.map(function(a){
+        return '<option value="' + a + '"' + (prev.age === a ? ' selected' : '') + '>' + a + '</option>';
+      }).join('');
+
+      html +=
+        '<div class="swimmer">' +
+          '<p class="n">' + (ORD[i] || ('Child ' + (i + 1))) + ' little one</p>' +
+          '<div class="f-row" style="margin-bottom:0">' +
+            '<div>' +
+              '<label class="lab" for="sn' + i + '">Name</label>' +
+              '<input id="sn' + i + '" type="text" autocomplete="off" placeholder="Who is coming" value="' +
+                prev.name.replace(/"/g, '&quot;') + '">' +
+            '</div>' +
+            '<div>' +
+              '<label class="lab" for="sa' + i + '">Age</label>' +
+              '<select id="sa' + i + '">' + opts + '</select>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+    }
+    list.innerHTML = html;
+  }
+
+  if (kids){ kids.addEventListener('change', renderSwimmers); renderSwimmers(); }
+
+  var form = document.getElementById('rsvpForm');
+  if (form){
+    form.querySelectorAll('input[name="going"]').forEach(function(r){
+      r.addEventListener('change', function(){ form.setAttribute('data-going', r.value); });
+    });
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var el = document.getElementById('who');
+      var name = (el.value || '').trim();
+      if (!name){ el.focus(); return; }
+
+      var going = form.getAttribute('data-going') === 'yes';
+      var title = document.getElementById('doneTitle');
+      var msg   = document.getElementById('doneMsg');
+
+      if (going){
+        var n = parseInt(kids.value, 10) || 1;
+        title.textContent = 'See you under the sea';
+        msg.textContent = 'Thank you, ' + name + '. ' + n +
+          (n === 1 ? ' little one is' : ' little ones are') +
+          ' on the list. Swimsuits on under the clothes, and a towel with a name on it.';
+      } else {
+        title.textContent = 'We will miss you';
+        msg.textContent = 'Thank you for letting us know, ' + name +
+          '. Sophie will wave at you from the smash cake.';
+      }
+
+      form.classList.add('done');
+      form.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block:'center' });
+    });
+  }
+})();
+</script>
+</body>
+</html>
